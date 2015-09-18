@@ -209,7 +209,7 @@ public class ProcessFile {
 			ArrayList<String> reqSentences = new ArrayList<String>();
 			
 			for(int i=0; i<inputLines.size(); i++){
- 				if(inputLines.get(i).equals(word)){
+ 				if(inputLines.get(i).trim().split("\\s+")[0].equals(word)){
  					reqSentences.add(inputLines.get(i));
  				}
  			}

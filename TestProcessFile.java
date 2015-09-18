@@ -37,7 +37,7 @@ public class TestProcessFile {
 	
 	@Test
 	public void testSearch(){
-		testFile.insert("file.txt", "nononono");
+		testFile.insert("file.txt", "hello how are you");
 		
 		//testing for case "null" 
 		ArrayList<String> listOne = testFile.search("file.txt", "null");
@@ -69,7 +69,14 @@ public class TestProcessFile {
 		//testing for case where is more than 1 word in the file and both are not equal to the given word
 		ArrayList<String> listSix = testFile.search("file.txt", "hello");
 		assertTrue(listSix.get(0).equals("hello"));
-		assertFalse(listSix.size() == 2);
+		//assertFalse(listSix.size() == 2);
+		
+		//testing for case where the search word is the first word of a sentence 
+		ArrayList<String> listSeven = testFile.search("file.txt", "hello");
+		assertTrue(listSeven.get(0).equals("hello"));
+		assertTrue(listSeven.get(1).equals("hello how are you"));
+		assertTrue(listSeven.size() == 2);
+		
 		
 		
 		
