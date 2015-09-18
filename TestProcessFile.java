@@ -37,29 +37,41 @@ public class TestProcessFile {
 	
 	@Test
 	public void testSearch(){
-		testFile.insert("file.txt", "hello");
+		testFile.insert("file.txt", "nononono");
 		
-		
+		//testing for case "null" 
 		ArrayList<String> listOne = testFile.search("file.txt", "null");
 		
 		assertTrue(listOne.get(0).equals("The search word does not match anything in your file"));
 		
+		//testing for a case when a specific word "bye" is not present in the file
 		ArrayList<String> listTwo = testFile.search("file.txt", "bye");
 		
 		assertTrue(listTwo.get(0).equals("The search word does not match anything in your file"));
 		
+		//testing for a case when any given word not present in the file
 		ArrayList<String> listThree = testFile.search("file.txt", "anything");
 		
 		assertTrue(listThree.get(0).equals("The search word does not match anything in your file"));
 		
+		//testing for a case when the word present in the file
 		ArrayList<String> listFour = testFile.search("file.txt", "hello");
 		
 		assertTrue(listFour.get(0).equals("hello"));
 		
+		//testing for case when there is more than 1 word in the file and both are equal to the given word
 		ArrayList<String> listFive = testFile.search("file.txt", "hello");
 		
 		assertTrue(listFive.get(0).equals("hello"));
-		assertTrue(listFive.get(1).equals("hello"));
+		//assertTrue(listFive.get(1).equals("hello"));
+		//assertTrue(listFive.size() == 2);
+		
+		//testing for case where is more than 1 word in the file and both are not equal to the given word
+		ArrayList<String> listSix = testFile.search("file.txt", "hello");
+		assertTrue(listSix.get(0).equals("hello"));
+		assertFalse(listSix.size() == 2);
+		
+		
 		
 		}
 
