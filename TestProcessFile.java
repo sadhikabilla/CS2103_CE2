@@ -84,8 +84,12 @@ public class TestProcessFile {
 		assertTrue(listEight.get(2).equals("how hello are you"));
 		assertTrue(listSeven.size() == 3);
 		
-		
-		
+		//testing for case when the search word is part of a word in a sentence
+		ArrayList<String> listNine = testFile.search("file.txt", "ell");
+		assertTrue(listNine.get(0).equals("hello"));
+		assertTrue(listNine.get(1).equals("hello how are you"));
+		assertTrue(listNine.get(2).equals("how hello are you"));
+		assertTrue(listNine.size() == 3);
 		}
 
 }
