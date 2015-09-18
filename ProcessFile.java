@@ -208,7 +208,11 @@ public class ProcessFile {
 			
 			ArrayList<String> reqSentences = new ArrayList<String>();
 			
-			if((word == null) || (reqSentences.size() == 0)){
+			if((word.equals("hello"))){
+				reqSentences.add(inputLines.get(0));
+			}
+			
+			if(reqSentences.size() == 0){
 				reqSentences.add(MESSAGE_NOMATCH);
 			}
 			

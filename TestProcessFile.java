@@ -14,11 +14,11 @@ import org.junit.Test;
 
 public class TestProcessFile {
 
-	ProcessFile testFile = new ProcessFile("myfile.txt");
+	ProcessFile testFile = new ProcessFile("hello.txt");
 	
 	@Test
 	public void testInsert() throws IOException{
-		testFile.insert("myfile.txt", "hello");
+		testFile.insert("hello.txt", "hello");
 		
 		//opening the file to read content
 		String filePath = new File("").getAbsolutePath();
@@ -37,7 +37,9 @@ public class TestProcessFile {
 	
 	@Test
 	public void testSearch(){
-		ArrayList<String> listOne = testFile.search("myfile.txt", null);
+		testFile.insert("hello.txt", "hello");
+		
+		ArrayList<String> listOne = testFile.search("myfile.txt", "null");
 		
 		assertTrue(listOne.get(0).equals("The search word does not match anything in your file"));
 		
@@ -48,6 +50,10 @@ public class TestProcessFile {
 		ArrayList<String> listThree = testFile.search("myfile.txt", "anything");
 		
 		assertTrue(listThree.get(0).equals("The search word does not match anything in your file"));
+		
+		ArrayList<String> listFour = testFile.search("myfile.txt", "hello");
+		
+		assertTrue(listFour.get(0).equals("hello"));
 		
 		}
 
