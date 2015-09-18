@@ -14,15 +14,15 @@ import org.junit.Test;
 
 public class TestProcessFile {
 
-	ProcessFile testFile = new ProcessFile("hello.txt");
+	ProcessFile testFile = new ProcessFile("file.txt");
 	
 	@Test
 	public void testInsert() throws IOException{
-		testFile.insert("hello.txt", "hello");
+		testFile.insert("file.txt", "hello");
 		
 		//opening the file to read content
 		String filePath = new File("").getAbsolutePath();
-		File myfile = new File(filePath +"/"+ "myfile.txt");
+		File myfile = new File(filePath +"/"+ "file.txt");
 		FileReader fr = new FileReader(myfile);
 		BufferedReader br = new BufferedReader(fr);
 		
@@ -37,23 +37,29 @@ public class TestProcessFile {
 	
 	@Test
 	public void testSearch(){
-		testFile.insert("hello.txt", "hello");
+		testFile.insert("file.txt", "hello");
 		
-		ArrayList<String> listOne = testFile.search("myfile.txt", "null");
+		
+		ArrayList<String> listOne = testFile.search("file.txt", "null");
 		
 		assertTrue(listOne.get(0).equals("The search word does not match anything in your file"));
 		
-		ArrayList<String> listTwo = testFile.search("myfile.txt", "bye");
+		ArrayList<String> listTwo = testFile.search("file.txt", "bye");
 		
 		assertTrue(listTwo.get(0).equals("The search word does not match anything in your file"));
 		
-		ArrayList<String> listThree = testFile.search("myfile.txt", "anything");
+		ArrayList<String> listThree = testFile.search("file.txt", "anything");
 		
 		assertTrue(listThree.get(0).equals("The search word does not match anything in your file"));
 		
-		ArrayList<String> listFour = testFile.search("myfile.txt", "hello");
+		ArrayList<String> listFour = testFile.search("file.txt", "hello");
 		
 		assertTrue(listFour.get(0).equals("hello"));
+		
+		ArrayList<String> listFive = testFile.search("file.txt", "hello");
+		
+		assertTrue(listFive.get(0).equals("hello"));
+		assertTrue(listFive.get(1).equals("hello"));
 		
 		}
 
