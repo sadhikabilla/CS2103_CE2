@@ -163,7 +163,61 @@ public class ProcessFile {
  	}
  	
  	
- 		
+ 	/**
+	 * This operation returns all the sentences that contain the specified search word in the file
+	 * 
+	 * @param filename & word ('word' is the search String)
+	 *           
+	 * @return ArrayList of sentences which contain the specified word
+	 */
+ 	public ArrayList<String> search(String filename, String word){
+ 			String filePath = new File("").getAbsolutePath();
+ 			ArrayList<String> inputLines = null;
+ 			
+ 			try{
+ 				FileReader fr = new FileReader(new File(filePath + "/" + filename));
+ 				BufferedReader br = new BufferedReader(fr);
+ 				
+ 				inputLines = readIntoArrayList(br);
+ 				
+ 				br.close();
+ 				fr.close();
+ 				
+ 				
+ 			}catch (FileNotFoundException e) {
+ 				e.printStackTrace();
+ 			} catch (IOException e) {
+ 				e.printStackTrace();
+ 			}
+ 			
+ 			return getSentencesContainingWord(inputLines, word);
+ 			
+ 			
+ 		}
+ 	
+ 	     /**
+		 * This operation searches for all the sentences that contain the specified search word in the 
+		 * given ArrayList
+		 * 
+		 * @param inputLines                   & word 
+		 *        list of lines to search from   search String
+		 *           
+		 * @return ArrayList of sentences which contain the specified search string
+		 */
+		public ArrayList<String> getSentencesContainingWord (ArrayList<String> inputLines, String word){
+			
+			ArrayList<String> reqSentences = new ArrayList<String>();
+			
+			if(word == null){
+				reqSentences.add(MESSAGE_NOMATCH);
+			}
+			
+			return reqSentences;
+		}
+
+ 	
+ 	
+
  		
  		/**
  		 * This operation writes all the elements from the ArrayList into the specified file 

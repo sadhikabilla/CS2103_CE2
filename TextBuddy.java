@@ -84,6 +84,9 @@ public class TextBuddy {
 			pf.clear(filename);
 			showToUser(String.format(MESSAGE_CLEAR, filename));
 			return true;
+		}else if(getFirstWord(inputString).equals("search")){
+			pf.displayList(pf.search(filename, getRemainingSentence(inputString)));
+			return true;
 		}else if(getFirstWord(inputString).equals("add")){
 			pf.insert(filename, getRemainingSentence(inputString));
 			showToUser(String.format(MESSAGE_ADD, filename, getRemainingSentence(inputString)));
