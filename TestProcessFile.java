@@ -45,6 +45,9 @@ public class TestProcessFile {
 		
 		assertTrue(listTwo.get(0).equals("The search word does not match anything in your file"));
 		
+		ArrayList<String> listThree = testFile.search("myfile.txt", "anything");
+		
+		assertTrue(listThree.get(0).equals("The search word does not match anything in your file"));
 		
 		}
 
