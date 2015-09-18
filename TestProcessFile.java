@@ -37,9 +37,14 @@ public class TestProcessFile {
 	
 	@Test
 	public void testSearch(){
-		ArrayList<String> list = testFile.search("myfile.txt", null);
+		ArrayList<String> listOne = testFile.search("myfile.txt", null);
 		
-		assertTrue(list.get(0).equals("The search word does not match anything in your file"));
+		assertTrue(listOne.get(0).equals("The search word does not match anything in your file"));
+		
+		ArrayList<String> listTwo = testFile.search("myfile.txt", "bye");
+		
+		assertTrue(listTwo.get(0).equals("The search word does not match anything in your file"));
+		
 		
 		}
 

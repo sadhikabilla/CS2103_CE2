@@ -208,7 +208,7 @@ public class ProcessFile {
 			
 			ArrayList<String> reqSentences = new ArrayList<String>();
 			
-			if(word == null){
+			if((word == null) || (word.equals("bye"))){
 				reqSentences.add(MESSAGE_NOMATCH);
 			}
 			
