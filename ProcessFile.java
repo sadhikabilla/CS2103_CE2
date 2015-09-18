@@ -17,7 +17,8 @@ import java.util.ArrayList;
  * display : This displays the content of the file and also identifies if the file is empty
  * insert  : This adds the specified line to the file
  * delete  : This deletes the specified line from the file
- * clear   : This deletes all the content in the file 
+ * clear   : This deletes all the content in the file
+ * search  : This finds and displays all the sentences which contain a given word 
  * @author sadhikabilla
  *
  */
@@ -209,7 +210,7 @@ public class ProcessFile {
 			ArrayList<String> reqSentences = new ArrayList<String>();
 			
 			for(int i=0; i<inputLines.size(); i++){
- 				if(inputLines.get(i).trim().split("\\s+")[0].equals(word)){
+ 				if(inputLines.get(i).contains(word)){
  					reqSentences.add(inputLines.get(i));
  				}
  			}
@@ -222,10 +223,7 @@ public class ProcessFile {
 		}
 
  	
- 	
-
- 		
- 		/**
+ 	     /**
  		 * This operation writes all the elements from the ArrayList into the specified file 
  		 * 
  		 * 

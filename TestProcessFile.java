@@ -38,7 +38,7 @@ public class TestProcessFile {
 	@Test
 	public void testSearch(){
 		testFile.insert("file.txt", "hello how are you");
-		
+		testFile.insert("file.txt", "how hello are you");
 		//testing for case "null" 
 		ArrayList<String> listOne = testFile.search("file.txt", "null");
 		
@@ -75,8 +75,14 @@ public class TestProcessFile {
 		ArrayList<String> listSeven = testFile.search("file.txt", "hello");
 		assertTrue(listSeven.get(0).equals("hello"));
 		assertTrue(listSeven.get(1).equals("hello how are you"));
-		assertTrue(listSeven.size() == 2);
+		//assertTrue(listSeven.size() == 2);
 		
+		//testing for case when the search word is anywhere in the sentence
+		ArrayList<String> listEight = testFile.search("file.txt", "hello");
+		assertTrue(listEight.get(0).equals("hello"));
+		assertTrue(listEight.get(1).equals("hello how are you"));
+		assertTrue(listEight.get(2).equals("how hello are you"));
+		assertTrue(listSeven.size() == 3);
 		
 		
 		
